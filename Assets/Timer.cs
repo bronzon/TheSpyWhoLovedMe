@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour {
 	public int minutes = 10;
 	public Text uiText;
 	private bool isStarted;
-	private float timeRemaining = 0f;
+	public float timeRemaining = 0f;
 
 	void Awake() {
 		StartTimer ();
