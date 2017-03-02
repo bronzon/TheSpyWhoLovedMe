@@ -11,8 +11,8 @@ public class DestructionSequenceSystem : MonoBehaviour {
 	public GameObject slides;
 	public GameObject inputField;
 	public GameObject button;
-	public Text goodWork;
 	public Text timerText;
+	public GameObject cutTheWireGuy;
 
 	private bool isSeen;
 
@@ -46,13 +46,10 @@ public class DestructionSequenceSystem : MonoBehaviour {
 		slides.SetActive (false);
 		inputField.SetActive (false);
 		timerText.gameObject.SetActive (false);
-		goodWork.gameObject.SetActive (true);
-		goodWork.GetComponent<Text> ().text = "KLIPP RÄTT KABEL";
-		yield return new WaitForSeconds (6);
-		goodWork.gameObject.SetActive (false);
-
+		cutTheWireGuy.gameObject.SetActive (true);
+		yield return new WaitForSeconds (20);
+		cutTheWireGuy.gameObject.SetActive (false);
 		StartSequence ();
-
 	}
 
 	public void CutTheWire () {

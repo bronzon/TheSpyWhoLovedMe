@@ -9,6 +9,7 @@ public class SlidesSystem : MonoBehaviour {
 	private DestructionSequenceSystem destructionSequenceSystem;
 	private int currentSlide = 0;
 	public GameObject goodWork;
+	public GameObject cutTheWireGuy;
 
 	
 	public void OnAnswerSubmitted() {		
@@ -36,12 +37,13 @@ public class SlidesSystem : MonoBehaviour {
 		slide.gameObject.SetActive(false);
 		goodWork.gameObject.SetActive (true);
 		inputField.gameObject.SetActive (false);
-		yield return new WaitForSeconds (4);
+		yield return new WaitForSeconds (6);
 
 		currentSlide++;
 		if (currentSlide >= slides.Count) {	
-			goodWork.GetComponent<Text> ().text = "KLIPP RÄTT KABEL";
-			yield return new WaitForSeconds (6);
+			cutTheWireGuy.gameObject.SetActive (true);
+			yield return new WaitForSeconds (20);
+			cutTheWireGuy.gameObject.SetActive (false);
 			goodWork.gameObject.SetActive (false);
 			destructionSequenceSystem.StartSequence ();
 		} else {

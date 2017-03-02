@@ -6,10 +6,12 @@ using UnityEngine.UI;
 public class Starter : MonoBehaviour {
 	public GameObject inputField;
 	public SlidesSystem slidesSystem;
+	public GameObject music;
 
 	public void StartItAll() {
 		inputField.SetActive (true);
 		slidesSystem.StartSlideShow ();
 		gameObject.SetActive (false);
+		Instantiate (music);
 	}
 }
