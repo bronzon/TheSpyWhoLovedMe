@@ -10,6 +10,7 @@ public class DestructionSequenceSystem : MonoBehaviour {
 	public GameObject bombChild;
 	public GameObject slides;
 	public GameObject inputField;
+	public GameObject button;
 	public Text goodWork;
 	public Text timerText;
 
@@ -20,6 +21,10 @@ public class DestructionSequenceSystem : MonoBehaviour {
 	}
 
 	public void StartSequence () {
+		if (isSeen) {
+			return;
+		}
+			
 		isSeen = true;
 		uiText.gameObject.SetActive (false);
 		bombChild.SetActive (true);
@@ -33,6 +38,11 @@ public class DestructionSequenceSystem : MonoBehaviour {
 	}
 
 	IEnumerator DoIt ()	{
+		if (isSeen) {
+			yield break;
+		}
+
+		button.SetActive (false);
 		slides.SetActive (false);
 		inputField.SetActive (false);
 		timerText.gameObject.SetActive (false);
@@ -49,6 +59,5 @@ public class DestructionSequenceSystem : MonoBehaviour {
 		bombChild.SetActive (false);
 		uiText.gameObject.SetActive (false);
 		theCodeText.gameObject.SetActive (true);
-
 	}
 }

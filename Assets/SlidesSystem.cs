@@ -28,6 +28,10 @@ public class SlidesSystem : MonoBehaviour {
 
 	}
 
+	public void StartSlideShow () {
+		StartCoroutine(CorrectAnswer (slides [currentSlide]));
+	}
+
 	IEnumerator CorrectAnswer (Slide slide) 	{
 		slide.gameObject.SetActive(false);
 		goodWork.gameObject.SetActive (true);
@@ -44,6 +48,7 @@ public class SlidesSystem : MonoBehaviour {
 			goodWork.gameObject.SetActive (false);
 			slide = slides [currentSlide];
 			inputField.gameObject.SetActive (true);
+			inputField.text = "";
 			slide.gameObject.SetActive (true);
 		}
 	}
