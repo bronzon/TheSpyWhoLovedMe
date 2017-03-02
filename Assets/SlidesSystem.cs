@@ -33,7 +33,7 @@ public class SlidesSystem : MonoBehaviour {
 		StartCoroutine(CorrectAnswer (slides [currentSlide]));
 	}
 
-	IEnumerator CorrectAnswer (Slide slide) 	{
+	IEnumerator CorrectAnswer (Slide slide) 	{		
 		slide.gameObject.SetActive(false);
 		goodWork.gameObject.SetActive (true);
 		inputField.gameObject.SetActive (false);

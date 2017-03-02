@@ -13,6 +13,7 @@ public class DestructionSequenceSystem : MonoBehaviour {
 	public GameObject button;
 	public Text timerText;
 	public GameObject cutTheWireGuy;
+	public GameObject agent;
 
 	private bool isSeen;
 
@@ -21,6 +22,7 @@ public class DestructionSequenceSystem : MonoBehaviour {
 	}
 
 	public void StartSequence () {
+		print ("databanan");
 		if (isSeen) {
 			return;
 		}
@@ -41,7 +43,7 @@ public class DestructionSequenceSystem : MonoBehaviour {
 		if (isSeen) {
 			yield break;
 		}
-
+		agent.SetActive (false);
 		button.SetActive (false);
 		slides.SetActive (false);
 		inputField.SetActive (false);
