@@ -11,12 +11,13 @@ public class SlidesSystem : MonoBehaviour {
 	public GameObject goodWork;
 	public GameObject cutTheWireGuy;
 
-	
-	public void OnAnswerSubmitted() {		
+	IEnumerator Answered ()
+	{
+		
 		var slide = slides [currentSlide];
 		var correctAnswer = slide.correctAnswer;
 		var answer = inputField.text;
-	
+
 		answer = answer.Trim ();
 		correctAnswer = correctAnswer.Trim ();
 
@@ -24,8 +25,13 @@ public class SlidesSystem : MonoBehaviour {
 		answer = answer.ToLower ();
 
 		if(correctAnswer.Equals(answer)) {
+			yield return new WaitForSeconds (1);
 			StartCoroutine (CorrectAnswer (slide));
 		}
+	}
+	
+	public void OnAnswerSubmitted() {		
+		StartCoroutine (Answered ());
 
 	}
 
